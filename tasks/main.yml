@@ -39,7 +39,7 @@
     state: directory
     mode: 0755
 
-- name: pushing config file setupVars
+- name: Push configuration file setupVars
   template:
     src: templates/setupVars.conf.j2
     dest: "{{ pihole_etc_dir }}/setupVars.conf"
@@ -50,6 +50,7 @@
   stat:
     path: "{{ pihole_bin_path }}"
   register: pihole_bin
+  changed_when: not pihole_bin.stat.exists
 
 - name: installing pihole
   shell:
