@@ -49,3 +49,9 @@ pihole_blacklist_regex: []
 pihole_whitelist_wildcards: []
 pihole_blacklist_wildcards: []
 
+# Gravity database:
+pihole_gravity_managed: true
+pihole_gravity_lists:
+    - address: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+      comment: Default Pi-Hole block list
+      enabled: true

@@ -71,6 +71,9 @@
     var: updatePihole.stdout_lines
   when: updatePihole.changed == true
 
+- include_tasks: gravity.yml
+  when: pihole_gravity_managed | bool
+
 - include_tasks: domainlistings.yml
 
 - name: Finished! ipv4
