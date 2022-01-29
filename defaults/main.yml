@@ -49,6 +49,9 @@ pihole_blacklist_regex: []
 pihole_whitelist_wildcards: []
 pihole_blacklist_wildcards: []
 
+# Custom domains:
+pihole_custom_domains: {}
+
 # Gravity database:
 pihole_gravity_managed: true
 pihole_gravity_lists:

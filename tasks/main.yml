@@ -46,6 +46,13 @@
     mode: 0644
   notify: reconfigure pi-hole dns
 
+- name: Push custom domains configuration file
+  template:
+    src: templates/custom.list.j2
+    dest: "{{ pihole_etc_dir }}/custom.list"
+    mode: 0644
+  notify: reconfigure pi-hole dns
+
 - name: check for existing installation of pihole
   stat:
     path: "{{ pihole_bin_path }}"
