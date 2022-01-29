@@ -8,6 +8,7 @@
       - "SELECT address, enabled, comment FROM adlist"
   register: sqlite_gravity_lists
   changed_when: false
+  check_mode: no
 
 - set_fact:
     gravity_lists: "{{ gravity_lists|default([]) + [ {'address': item.split('|')[0], 'enabled': item.split('|')[1] | bool, 'comment': item.split('|')[2]} ] }}"
