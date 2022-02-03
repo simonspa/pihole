@@ -37,7 +37,7 @@
   file:
     path: "{{ pihole_etc_dir }}"
     state: directory
-    mode: 0755
+    mode: 0775
 
 - name: Push configuration file setupVars
   template:
