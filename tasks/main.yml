@@ -69,6 +69,10 @@
   changed_when: updatecheck.stdout | regex_search('update available') != none
   notify: update pi-hole
 
+- name: Enable/disable query log
+  command: "{{ pihole_bin_path }} logging {% if pihole_setupvars_query_logging == true %}on{% else %}off{% endif %}"
+  when: pihole_bin.stat.exists
+
 - include_tasks: gravity.yml
   when: pihole_gravity_managed | bool
 
