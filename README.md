@@ -81,6 +81,15 @@ pihole_whitelist_wildcards: []
 pihole_blacklist_wildcards: []
 ```
 
+### Local DNS custom records
+
+To add records to the local DNS of pihole set the `pihole_custom_domains` dict with IP address as key and domain as value
+```
+pihole_custom_domains:
+  1.2.3.4: example.com
+  192.168.1.1: my-awesome-router.localdomain
+```
+
 ## Example Playbook
 ```yaml
 ---
@@ -99,3 +108,4 @@ pihole_blacklist_wildcards: []
   roles:
     - zfuller.pihole
 ```
+TODO

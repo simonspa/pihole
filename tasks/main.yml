@@ -37,12 +37,19 @@
   file:
     path: "{{ pihole_etc_dir }}"
     state: directory
-    mode: 0755
+    mode: 0775
 
 - name: Push configuration file setupVars
   template:
     src: templates/setupVars.conf.j2
     dest: "{{ pihole_etc_dir }}/setupVars.conf"
+    mode: 0644
+  notify: reconfigure pi-hole dns
+
+- name: Push custom domains configuration file
+  template:
+    src: templates/custom.list.j2
+    dest: "{{ pihole_etc_dir }}/custom.list"
     mode: 0644
   notify: reconfigure pi-hole dns
 
